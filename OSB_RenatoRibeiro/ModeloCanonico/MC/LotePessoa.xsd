@@ -1,0 +1,12 @@
+<schema targetNamespace="http://pucminas.br/MC/SOA/RenatoRibeiro" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://pucminas.br/MC/SOA/RenatoRibeiro" xmlns:pes="http://pucminas.br/MC/SOA/RenatoRibeiro">
+	
+	<include schemaLocation="Pessoa.xsd"/>
+	
+	<complexType name="LotePessoa">
+		<sequence>
+			<element name="id" type="integer"/>
+			<element name="pessoa" type="pes:Pessoa" minOccurs="1" maxOccurs="unbounded"/>
+		</sequence>	
+	</complexType>
+	
+</schema>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://creditlegacy.com.br/SN/CreditLegacy"
+	xmlns:tns="http://creditlegacy.com.br/SN/CreditLegacy" elementFormDefault="qualified">
+	
+	
+	<element name="ParametrosCreditLegacy" type="tns:ParametrosCreditLegacy"/>
+	<element name="ResultadoCreditLegacy" type="tns:ResultadoCreditLegacy"/>
+	
+	<complexType name="ParametrosCreditLegacy">
+		<sequence>
+			<element name="cpf" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="motivos" type="tns:ListaMotivo" minOccurs="1" maxOccurs="1"/>
+			<element name="dt_solicitacao" type="date" minOccurs="1" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="ResultadoCreditLegacy">
+		<sequence>
+			<element name="cpf" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="restricoes" type="tns:ListaRestricoes" minOccurs="1" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="ListaMotivo">
+		<sequence>
+			<element name="ds_motivo" type="string" minOccurs="1" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="ListaRestricoes">
+		<sequence>
+			<element name="restricao" type="tns:restricao" minOccurs="1" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="restricao">
+		<sequence>
+			<element name="ds_restricao" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="valor" type="string" minOccurs="1" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+	
+	
+	
+</schema>

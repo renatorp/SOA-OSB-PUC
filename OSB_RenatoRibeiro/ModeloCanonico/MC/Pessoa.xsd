@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://pucminas.br/MC/SOA/RenatoRibeiro" xmlns:tns="http://pucminas.br/MC/SOA/RenatoRibeiro" elementFormDefault="qualified">
+	
+	<complexType name="Pessoa">
+		<sequence>
+			<element name="id" type="integer"/>
+			<element name="nome" type="string"/>
+			<element name="dataNascimento" type="date"/>
+			<element name="cnpj" type="string"/>
+			<element name="telefone" type="integer"/>
+		</sequence>	
+	</complexType>
+	
+</schema>

@@ -1,0 +1,16 @@
+<schema targetNamespace="http://pucminas.br/MC/SOA/RenatoRibeiro" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://pucminas.br/MC/SOA/RenatoRibeiro" xmlns:pes="http://pucminas.br/MC/SOA/RenatoRibeiro">
+
+	<include schemaLocation="Pessoa.xsd"/>
+
+	<complexType name="Credito">
+		<sequence>
+			<element name="pessoa" type="pes:Pessoa"/>
+			<element name="indicaCreditoExterno" type="boolean"/>
+			<element name="indicaCreditoInterno" type="boolean"/>
+			<element name="indicaWhiteList" type="boolean"/>
+			<element name="situacao" type="integer"/>
+		</sequence>	
+	</complexType>
+	
+
+</schema>

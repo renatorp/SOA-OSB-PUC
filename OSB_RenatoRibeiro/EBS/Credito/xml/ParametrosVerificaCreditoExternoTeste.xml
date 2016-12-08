@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:parametrosVerificaCreditoExterno xmlns:tns="http://pucminas.br/SN/Credito" xmlns:tns1="http://pucminas.br/MC/SOA/RenatoRibeiro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pucminas.br/SN/Credito ../xsd/ParametrosCredito.xsd ">
+  <tns:pessoa>
+    <tns1:id>1</tns1:id>
+    <tns1:nome>José Teste Um</tns1:nome>
+    <tns1:dataNascimento>2001-01-01</tns1:dataNascimento>
+    <tns1:cnpj>111.111.111-11</tns1:cnpj>
+    <tns1:telefone>1234-3422</tns1:telefone>
+  </tns:pessoa>
+</tns:parametrosVerificaCreditoExterno>

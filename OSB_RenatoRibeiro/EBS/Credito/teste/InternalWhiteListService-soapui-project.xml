@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="4ab57992-6d3d-4953-a2e5-932d282b159f" activeEnvironment="Default" name="InternalWhiteListService" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="5865e419-187a-42fa-a997-bdcbb97355d2" wsaVersion="NONE" name="InternalWhiteListServiceSOAP" type="wsdl" bindingName="{http://cursosoa.org/InternalWhiteListService/}InternalWhiteListServiceSOAP" soapVersion="1_1" anonymous="optional" definition="file:/home/puc/workspace/OSB_RenatoRibeiro/ServiciosNegocio/Credito/Resources/Interfaces/Contracts/InternalWhiteListService.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/home/puc/workspace/OSB_RenatoRibeiro/ServiciosNegocio/Credito/Resources/Interfaces/Contracts/InternalWhiteListService.wsdl"><con:part><con:url>file:/home/puc/workspace/OSB_RenatoRibeiro/ServiciosNegocio/Credito/Resources/Interfaces/Contracts/InternalWhiteListService.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="InternalWhiteListService" targetNamespace="http://cursosoa.org/InternalWhiteListService/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tn="http://cursosoa.org/InternalWhiteListService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ser="http://whitelist.com.br/SN/WhiteList">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://internalwhitelist.com.br/InternalWhiteList">
+      <xsd:import namespace="http://whitelist.com.br/SN/WhiteList" schemaLocation="../Schemas/InternalWhiteList.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="InternalWhiteListequest">
+    <wsdl:part element="ser:ParametrosWhiteList" name="ParametrosInternalWhiteList"/>
+  </wsdl:message>
+  <wsdl:message name="InternalWhiteListResponse">
+    <wsdl:part element="ser:ResultadoWhiteList" name="ResultadoInternalWhiteList"/>
+  </wsdl:message>
+  <wsdl:portType name="InternalWhiteListService">
+    <wsdl:operation name="ConsultarInternalWhiteList">
+      <wsdl:input message="tn:InternalWhiteListequest"/>
+      <wsdl:output message="tn:InternalWhiteListResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="InternalWhiteListServiceSOAP" type="tn:InternalWhiteListService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ConsultarInternalWhiteList">
+      <soap:operation soapAction="http://cursosoa.org/InternalWhiteListService/InternalWhiteListService"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="InternalWhiteListService">
+    <wsdl:port binding="tn:InternalWhiteListServiceSOAP" name="InternalWhiteListServiceSOAP">
+      <soap:address location="http://cursosoa.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:/home/puc/workspace/OSB_RenatoRibeiro/ServiciosNegocio/Credito/Resources/Interfaces/Schemas/InternalWhiteList.xsd</con:url><con:content><![CDATA[<schema targetNamespace="http://whitelist.com.br/SN/WhiteList" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://whitelist.com.br/SN/WhiteList">
+  <element name="ParametrosWhiteList" type="tns:ParametrosWhiteList"/>
+  <element name="ResultadoWhiteList" type="tns:ResultadoWhiteList"/>
+  <complexType name="ParametrosWhiteList">
+    <sequence>
+      <element name="num_documento" type="string" minOccurs="1" maxOccurs="1"/>
+      <element name="dt_nascimento" type="date" minOccurs="1" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+  <complexType name="ResultadoWhiteList">
+    <sequence>
+      <element name="num_documento" type="string" minOccurs="1" maxOccurs="1"/>
+      <element name="indica_white_list" type="boolean" minOccurs="1" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://cursosoa.org/</con:endpoint><con:endpoint>http://puc-VirtualBox:8091/InternalWhiteListService</con:endpoint></con:endpoints><con:operation id="b49b39e4-7e1a-41a8-a909-6170abb925db" isOneWay="false" action="http://cursosoa.org/InternalWhiteListService/InternalWhiteListService" name="ConsultarInternalWhiteList" bindingOperationName="ConsultarInternalWhiteList" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="661eb594-909b-499f-9fee-59a8faf4a8b8" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8091/InternalWhiteListService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:whit="http://whitelist.com.br/SN/WhiteList">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <whit:ParametrosWhiteList>
+         <whit:num_documento>123456</whit:num_documento>
+         <whit:dt_nascimento>1990-01-01</whit:dt_nascimento>
+      </whit:ParametrosWhiteList>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://cursosoa.org/InternalWhiteListService/InternalWhiteListService"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="c8ee85f0-8341-48d0-b8ba-54e03188b08d" port="8091" path="/InternalWhiteListService" host="puc-VirtualBox" name="InternalWhiteListServiceSOAP MockService"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="ConsultarInternalWhiteList" id="2a2e5271-f19b-433b-9f7a-3603015abe19" interface="InternalWhiteListServiceSOAP" operation="ConsultarInternalWhiteList"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="be32b03f-7104-45ca-a086-0f63b3f8c7e1" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:whit="http://whitelist.com.br/SN/WhiteList">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <whit:ResultadoWhiteList>
+         <whit:num_documento>123</whit:num_documento>
+         <whit:indica_white_list>false</whit:indica_white_list>
+      </whit:ResultadoWhiteList>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://cursosoa.org/InternalWhiteListService/InternalWhiteListService"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

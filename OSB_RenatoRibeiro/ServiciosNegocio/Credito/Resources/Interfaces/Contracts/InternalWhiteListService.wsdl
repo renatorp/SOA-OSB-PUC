@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tn="http://cursosoa.org/InternalWhiteListService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="InternalWhiteListService"
+	targetNamespace="http://cursosoa.org/InternalWhiteListService/" xmlns:ser="http://whitelist.com.br/SN/WhiteList">
+	
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://internalwhitelist.com.br/InternalWhiteList">
+			<xsd:import namespace="http://whitelist.com.br/SN/WhiteList" schemaLocation="../Schemas/InternalWhiteList.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="InternalWhiteListequest">
+		<wsdl:part element="ser:ParametrosWhiteList" name="ParametrosInternalWhiteList" />
+	</wsdl:message>
+
+	<wsdl:message name="InternalWhiteListResponse">
+		<wsdl:part element="ser:ResultadoWhiteList" name="ResultadoInternalWhiteList" />
+	</wsdl:message>
+
+	<wsdl:portType name="InternalWhiteListService">
+		<wsdl:operation name="ConsultarInternalWhiteList">
+			<wsdl:input message="tn:InternalWhiteListequest" />
+			<wsdl:output message="tn:InternalWhiteListResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="InternalWhiteListServiceSOAP" type="tn:InternalWhiteListService">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="ConsultarInternalWhiteList">
+			<soap:operation soapAction="http://cursosoa.org/InternalWhiteListService/InternalWhiteListService" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="InternalWhiteListService">
+		<wsdl:port binding="tn:InternalWhiteListServiceSOAP" name="InternalWhiteListServiceSOAP">
+			<soap:address location="http://cursosoa.org/" />
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

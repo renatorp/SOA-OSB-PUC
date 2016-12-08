@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://pucminas.br/SN/CreditoGeral"
+	xmlns:tns="http://www.example.org/ParametrosCreditoGeral"
+	elementFormDefault="qualified" xmlns:cab="http://pucminas.br/MC/SOA/RenatoRibeiro">
+
+	<import namespace="http://pucminas.br/MC/SOA/RenatoRibeiro"
+		schemaLocation="../../../ModeloCanonico/MC/Pessoa.xsd" />
+
+	<element name="parametrosVerificaCreditoGeral">
+		<complexType>
+			<sequence>
+				<element name="pessoa" type="cab:Pessoa" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="resultadoVerificaCreditoGeral">
+		<complexType>
+			<sequence>
+				<element name="score" type="integer" />
+				<element name="pessoa" type="cab:Pessoa" />
+			</sequence>
+		</complexType>
+	</element>
+
+</schema>

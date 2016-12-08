@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:resultadoVerificaCreditoInterno xmlns:tns="http://pucminas.br/SN/Credito" xmlns:tns1="http://pucminas.br/MC/SOA/RenatoRibeiro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pucminas.br/SN/Credito ParametrosCredito.xsd ">
+  <tns:credito>
+    <tns1:pessoa>
+      <tns1:id>0</tns1:id>
+      <tns1:nome>tns1:nome</tns1:nome>
+      <tns1:dataNascimento>2001-01-01</tns1:dataNascimento>
+      <tns1:cnpj>tns1:cnpj</tns1:cnpj>
+      <tns1:telefone>0</tns1:telefone>
+    </tns1:pessoa>
+    <tns1:indicaCreditoExterno>true</tns1:indicaCreditoExterno>
+    <tns1:indicaCreditoInterno>true</tns1:indicaCreditoInterno>
+    <tns1:indicaWhiteList>true</tns1:indicaWhiteList>
+    <tns1:situacao>0</tns1:situacao>
+  </tns:credito>
+  <tns:somaValorRestricoes>0</tns:somaValorRestricoes>
+  <tns:numRestricoes>0</tns:numRestricoes>
+</tns:resultadoVerificaCreditoInterno>

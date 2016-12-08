@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="0d24ed68-7092-4bea-ae2c-9d376a48b50f" activeEnvironment="Default" name="CreditLegacyService" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="e805e6f3-51ee-4f79-b953-0cfff1a05bdf" wsaVersion="NONE" name="CreditLegacyServiceSOAP" type="wsdl" bindingName="{http://cursosoa.org/CreditLegacyService/}CreditLegacyServiceSOAP" soapVersion="1_1" anonymous="optional" definition="file:/home/puc/workspace/OSB_RenatoRibeiro/ServiciosNegocio/Credito/Resources/Interfaces/Contracts/CreditLegacyService.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/home/puc/workspace/OSB_RenatoRibeiro/ServiciosNegocio/Credito/Resources/Interfaces/Contracts/CreditLegacyService.wsdl"><con:part><con:url>file:/home/puc/workspace/OSB_RenatoRibeiro/ServiciosNegocio/Credito/Resources/Interfaces/Contracts/CreditLegacyService.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="CreditLegacyService" targetNamespace="http://cursosoa.org/CreditLegacyService/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tn="http://cursosoa.org/CreditLegacyService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ser="http://creditlegacy.com.br/SN/CreditLegacy">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://creditlegacy.com.br/CreditLegacy">
+      <xsd:import namespace="http://creditlegacy.com.br/SN/CreditLegacy" schemaLocation="../Schemas/CreditLegacy.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="CreditLegacyequest">
+    <wsdl:part element="ser:ParametrosCreditLegacy" name="ParametrosCreditLegacy"/>
+  </wsdl:message>
+  <wsdl:message name="CreditLegacyResponse">
+    <wsdl:part element="ser:ResultadoCreditLegacy" name="ResultadoCreditLegacy"/>
+  </wsdl:message>
+  <wsdl:portType name="CreditLegacyService">
+    <wsdl:operation name="ConsultarCreditLegacy">
+      <wsdl:input message="tn:CreditLegacyequest"/>
+      <wsdl:output message="tn:CreditLegacyResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CreditLegacyServiceSOAP" type="tn:CreditLegacyService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ConsultarCreditLegacy">
+      <soap:operation soapAction="http://cursosoa.org/CreditLegacyService/CreditLegacyService"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CreditLegacyService">
+    <wsdl:port binding="tn:CreditLegacyServiceSOAP" name="CreditLegacyServiceSOAP">
+      <soap:address location="http://cursosoa.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:/home/puc/workspace/OSB_RenatoRibeiro/ServiciosNegocio/Credito/Resources/Interfaces/Schemas/CreditLegacy.xsd</con:url><con:content><![CDATA[<schema targetNamespace="http://creditlegacy.com.br/SN/CreditLegacy" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://creditlegacy.com.br/SN/CreditLegacy">
+  <element name="ParametrosCreditLegacy" type="tns:ParametrosCreditLegacy"/>
+  <element name="ResultadoCreditLegacy" type="tns:ResultadoCreditLegacy"/>
+  <complexType name="ParametrosCreditLegacy">
+    <sequence>
+      <element name="cpf" type="string" minOccurs="1" maxOccurs="1"/>
+      <element name="motivos" type="tns:ListaMotivo" minOccurs="1" maxOccurs="1"/>
+      <element name="dt_solicitacao" type="date" minOccurs="1" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+  <complexType name="ResultadoCreditLegacy">
+    <sequence>
+      <element name="cpf" type="string" minOccurs="1" maxOccurs="1"/>
+      <element name="restricoes" type="tns:ListaRestricoes" minOccurs="1" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+  <complexType name="ListaMotivo">
+    <sequence>
+      <element name="ds_motivo" type="string" minOccurs="1" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+  <complexType name="ListaRestricoes">
+    <sequence>
+      <element name="restricao" type="tns:restricao" minOccurs="1" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+  <complexType name="restricao">
+    <sequence>
+      <element name="ds_restricao" type="string" minOccurs="1" maxOccurs="1"/>
+      <element name="valor" type="string" minOccurs="1" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://cursosoa.org/</con:endpoint><con:endpoint>http://puc-VirtualBox:8090/CreditLegacyService</con:endpoint></con:endpoints><con:operation id="895c8db7-b30d-49cf-9fb1-942d78473bf7" isOneWay="false" action="http://cursosoa.org/CreditLegacyService/CreditLegacyService" name="ConsultarCreditLegacy" bindingOperationName="ConsultarCreditLegacy" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="cb06a0aa-3582-480f-8911-21aa10a88078" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8090/CreditLegacyService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cred="http://creditlegacy.com.br/SN/CreditLegacy">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cred:ParametrosCreditLegacy>
+         <cred:cpf>000.000.000-..</cred:cpf>
+         <cred:motivos>
+            <!--1 or more repetitions:-->
+            <cred:ds_motivo>motivo teste</cred:ds_motivo>
+         </cred:motivos>
+         <cred:dt_solicitacao>2016-11-21</cred:dt_solicitacao>
+      </cred:ParametrosCreditLegacy>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://cursosoa.org/CreditLegacyService/CreditLegacyService"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="490f6dbe-db4e-4cd6-b973-f248b408cd7a" port="8090" path="/CreditLegacyService" host="puc-VirtualBox" name="CreditLegacyServiceSOAP MockService"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="ConsultarCreditLegacy" id="1d898678-3ee6-4d64-b415-fca32833d06b" interface="CreditLegacyServiceSOAP" operation="ConsultarCreditLegacy"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="d4408c2e-6776-4d1d-b1fd-c4e797124bde" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cred="http://creditlegacy.com.br/SN/CreditLegacy">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cred:ResultadoCreditLegacy>
+         <cred:cpf>000.000.000-11</cred:cpf>
+         <cred:restricoes>
+            <!--1 or more repetitions:-->
+            <cred:restricao>
+               <cred:ds_restricao>restricao_1</cred:ds_restricao>
+               <cred:valor>100</cred:valor>
+            </cred:restricao>
+                <cred:restricao>
+               <cred:ds_restricao>restricao_1</cred:ds_restricao>
+               <cred:valor>100</cred:valor>
+            </cred:restricao>
+                <cred:restricao>
+               <cred:ds_restricao>restricao_1</cred:ds_restricao>
+               <cred:valor>100</cred:valor>
+            </cred:restricao>
+            <cred:restricao>
+               <cred:ds_restricao>restricao_1</cred:ds_restricao>
+               <cred:valor>100</cred:valor>
+            </cred:restricao>
+            <cred:restricao>
+               <cred:ds_restricao>restricao_1</cred:ds_restricao>
+               <cred:valor>10</cred:valor>
+            </cred:restricao>
+         </cred:restricoes>
+      </cred:ResultadoCreditLegacy>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://cursosoa.org/CreditLegacyService/CreditLegacyService"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

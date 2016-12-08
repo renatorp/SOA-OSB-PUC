@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://pucminas.br/SN/Pessoa" 
+	xmlns:tns="http://pucminas.br/SN/Pessoa" 
+	elementFormDefault="qualified"
+	xmlns:cab="http://pucminas.br/MC/SOA/RenatoRibeiro">
+
+	<import namespace="http://pucminas.br/MC/SOA/RenatoRibeiro" schemaLocation="../../../ModeloCanonico/MC/Pessoa.xsd" />
+
+
+	<element name="parametrosBuscaPessoa">
+		<complexType>
+			<sequence>
+				<element name="pessoa" type="cab:Pessoa" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="resultadoBuscaPessoa">
+		<complexType>
+			<sequence>
+				<element name="pessoa" type="cab:Pessoa" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="parametrosCadastraPessoa">
+		<complexType>
+			<sequence>
+				<element name="pessoa" type="cab:Pessoa" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="resultadoCadastraPessoa">
+		<complexType>
+			<sequence>
+				<element name="pessoa" type="cab:Pessoa" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="parametrosDesastivaPessoa ">
+		<complexType>
+			<sequence>
+				<element name="pessoa" type="cab:Pessoa" />
+			</sequence>
+		</complexType>
+	</element>
+
+</schema>

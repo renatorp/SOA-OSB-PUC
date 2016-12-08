@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tn="http://cursosoa.org/SerasaService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SerasaService"
+	targetNamespace="http://cursosoa.org/SerasaService/" xmlns:ser="http://serasa.com.br/SN/Serasa">
+	
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://serasa.com.br/Serasa">
+			<xsd:import namespace="http://serasa.com.br/SN/Serasa" schemaLocation="../Schemas/Serasa.xsd"/>
+		</xsd:schema>
+	</wsdl:types>
+
+	<wsdl:message name="Serasaequest">
+		<wsdl:part element="ser:ParametrosSerasa" name="ParametrosSerasa" />
+	</wsdl:message>
+
+	<wsdl:message name="SerasaResponse">
+		<wsdl:part element="ser:ResultadoSerasa" name="ResultadoSerasa" />
+	</wsdl:message>
+
+	<wsdl:portType name="SerasaService">
+		<wsdl:operation name="ConsultarSerasa">
+			<wsdl:input message="tn:Serasaequest" />
+			<wsdl:output message="tn:SerasaResponse" />
+		</wsdl:operation>
+	</wsdl:portType>
+
+	<wsdl:binding name="SerasaServiceSOAP" type="tn:SerasaService">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="ConsultarSerasa">
+			<soap:operation soapAction="http://cursosoa.org/SerasaService/SerasaService" />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="SerasaService">
+		<wsdl:port binding="tn:SerasaServiceSOAP" name="SerasaServiceSOAP">
+			<soap:address location="http://cursosoa.org/" />
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

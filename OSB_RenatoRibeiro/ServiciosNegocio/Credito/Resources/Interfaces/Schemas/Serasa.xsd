@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://serasa.com.br/SN/Serasa"
+	xmlns:tns="http://serasa.com.br/SN/Serasa" elementFormDefault="qualified">
+	
+	
+	<element name="ParametrosSerasa" type="tns:ParametrosSerasa"/>
+	<element name="ResultadoSerasa" type="tns:ResultadoSerasa"/>
+	
+	<complexType name="ParametrosSerasa">
+		<sequence>
+			<element name="num_documento" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="dt_nascimento" type="date" minOccurs="1" maxOccurs="1"/>
+			<element name="dt_solicitacao" type="date" minOccurs="1" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="ResultadoSerasa">
+		<sequence>
+			<element name="num_documento" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="valor_restricao" type="decimal" minOccurs="1" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+	
+</schema>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:parametrosDesastivaPessoa xmlns:tns="http://pucminas.br/SN/Pessoa" xmlns:tns1="http://pucminas.br/MC/SOA/RenatoRibeiro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pucminas.br/SN/Pessoa ../xsd/ParametrosPessoa.xsd ">
+  <tns:pessoa>
+    <tns1:id>3</tns1:id>
+    <tns1:nome>Paula A</tns1:nome>
+    <tns1:dataNascimento>2001-01-01</tns1:dataNascimento>
+    <tns1:cnpj>666.666.666-00</tns1:cnpj>
+    <tns1:telefone>4354-2343</tns1:telefone>
+  </tns:pessoa>
+</tns:parametrosDesastivaPessoa>

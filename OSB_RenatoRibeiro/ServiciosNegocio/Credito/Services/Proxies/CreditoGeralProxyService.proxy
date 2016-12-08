@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml-fragment xmlns:ser="http://www.bea.com/wli/sb/services" xmlns:tran="http://www.bea.com/wli/sb/transports" xmlns:env="http://www.bea.com/wli/config/env" xmlns:http="http://www.bea.com/wli/sb/transports/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:con1="http://www.bea.com/wli/sb/stages/config" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config" xmlns:con3="http://www.bea.com/wli/sb/stages/routing/config">
+  <ser:coreEntry isProxy="true" isEnabled="true">
+    <ser:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType" xmlns:con="http://www.bea.com/wli/sb/services/bindings/config">
+      <con:wsdl ref="OSB_RenatoRibeiro/EBS/Credito/wsdl/CreditoGeralService"/>
+      <con:port>
+        <con:name>CreditoGeralServiceSOAP</con:name>
+        <con:namespace>http://pucminas.br/SN/CreditoService/RenatoRibeiro</con:namespace>
+      </con:port>
+      <con:selector type="SOAP body"/>
+    </ser:binding>
+    <ser:monitoring isEnabled="false">
+      <ser:aggregationInterval>10</ser:aggregationInterval>
+      <ser:pipelineMonitoringLevel>Pipeline</ser:pipelineMonitoringLevel>
+    </ser:monitoring>
+    <ser:reporting>true</ser:reporting>
+    <ser:logging isEnabled="true">
+      <ser:logLevel>debug</ser:logLevel>
+    </ser:logging>
+    <ser:sla-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:sla-alerting>
+    <ser:pipeline-alerting isEnabled="true">
+      <ser:alertLevel>normal</ser:alertLevel>
+    </ser:pipeline-alerting>
+    <ser:ws-policy>
+      <ser:binding-mode>wsdl-policy-attachments</ser:binding-mode>
+    </ser:ws-policy>
+  </ser:coreEntry>
+  <ser:endpointConfig>
+    <tran:provider-id>local</tran:provider-id>
+    <tran:inbound>true</tran:inbound>
+    <tran:inbound-properties/>
+    <tran:all-headers>true</tran:all-headers>
+  </ser:endpointConfig>
+  <ser:router>
+    <con:pipeline type="request" name="PipelinePairCreditoGeral_request">
+      <con:stage name="obterPessoa">
+        <con:context>
+          <con1:varNsDecl namespace="http://pucminas.br/SN/CreditoGeral" prefix="cred"/>
+        </con:context>
+        <con:actions>
+          <con2:assign varName="pessoa">
+            <con1:id>_ActionId-9196488998754947785--6fabf8fd.158dbe7e16d.-7e93</con1:id>
+            <con2:expr>
+              <con1:xqueryText>$body/cred:parametrosVerificaCreditoGeral/cred:pessoa</con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+        </con:actions>
+      </con:stage>
+      <con:stage name="obterCreditoExterno">
+        <con:context>
+          <con1:userNsDecl namespace="http://pucminas.br/SN/Credito" prefix="cred"/>
+          <con1:varNsDecl namespace="http://pucminas.br/SN/CreditoGeral" prefix="cred1"/>
+          <con1:varNsDecl namespace="http://pucminas.br/MC/SOA/RenatoRibeiro" prefix="ren"/>
+        </con:context>
+        <con:actions>
+          <con2:assign varName="creditoExternoRequest">
+            <con1:id>_ActionId-2446167359644606466-5bbf6b4e.158cc0cb18e.-7f59</con1:id>
+            <con2:expr>
+              <con1:xqueryText>&lt;cred:parametrosVerificaCreditoExterno xmlns:cred="http://pucminas.br/SN/Credito">
+    {$pessoa}
+&lt;/cred:parametrosVerificaCreditoExterno></con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+          <con2:wsCallout>
+            <con1:id>_ActionId-2446167359644606466-5bbf6b4e.158cc0cb18e.-7fc9</con1:id>
+            <con2:service xsi:type="ref:ProxyRef" ref="OSB_RenatoRibeiro/ServiciosNegocio/Credito/Services/Proxies/Operations/verificaCreditoExternoService" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con2:operation>verificaCreditoExterno</con2:operation>
+            <con2:request>
+              <con2:body>$creditoExternoRequest</con2:body>
+            </con2:request>
+            <con2:response>
+              <con2:body>creditoExternoResponse</con2:body>
+            </con2:response>
+            <con2:requestTransform/>
+            <con2:responseTransform/>
+          </con2:wsCallout>
+          <con2:assign varName="restricaoCreditoExterno">
+            <con1:id>_ActionId-9196488998754947785--6fabf8fd.158dbe7e16d.-7f10</con1:id>
+            <con2:expr>
+              <con1:xqueryText>$creditoExternoResponse/cred:valorRestricao/text()</con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+        </con:actions>
+      </con:stage>
+      <con:stage name="obterCreditoInterno">
+        <con:context>
+          <con1:userNsDecl namespace="http://pucminas.br/SN/Credito" prefix="cred"/>
+        </con:context>
+        <con:actions>
+          <con2:assign varName="creditoInternoRequest">
+            <con1:id>_ActionId-9196488998754947785--6fabf8fd.158dbe7e16d.-7e47</con1:id>
+            <con2:expr>
+              <con1:xqueryText>&lt;cred:parametrosVerificaCreditoInterno xmlns:cred="http://pucminas.br/SN/Credito">
+    {$pessoa}
+&lt;/cred:parametrosVerificaCreditoInterno></con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+          <con2:wsCallout>
+            <con1:id>_ActionId-9196488998754947785--6fabf8fd.158dbe7e16d.-7e22</con1:id>
+            <con2:service xsi:type="ref:ProxyRef" ref="OSB_RenatoRibeiro/ServiciosNegocio/Credito/Services/Proxies/Operations/verificaCreditoInternoService" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con2:operation>verificaCreditoInterno</con2:operation>
+            <con2:request>
+              <con2:body>$creditoInternoRequest</con2:body>
+            </con2:request>
+            <con2:response>
+              <con2:body>creditoInternoResponse</con2:body>
+            </con2:response>
+            <con2:requestTransform/>
+            <con2:responseTransform/>
+          </con2:wsCallout>
+          <con2:assign varName="restricaoCreditoInterno">
+            <con1:id>_ActionId-9196488998754947785--6fabf8fd.158dbe7e16d.-7e03</con1:id>
+            <con2:expr>
+              <con1:xqueryText>$creditoInternoResponse/cred:somaValorRestricoes/text()</con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+          <con2:assign varName="numRestricoesCreditoInterno">
+            <con1:id>_ActionId-9196488998754947785--6fabf8fd.158dbe7e16d.-7ddd</con1:id>
+            <con2:expr>
+              <con1:xqueryText>$creditoInternoResponse/cred:numRestricoes/text()</con1:xqueryText>
+            </con2:expr>
+          </con2:assign>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:pipeline type="response" name="PipelinePairCreditoGeral_response">
+      <con:stage name="stage1">
+        <con:context>
+          <con1:userNsDecl namespace="http://pucminas.br/SN/Credito" prefix="cred"/>
+        </con:context>
+        <con:actions>
+          <con2:replace contents-only="true" varName="body">
+            <con1:id>_ActionId-9196488998754947785--6fabf8fd.158dbe7e16d.-7f51</con1:id>
+            <con2:location>
+              <con1:xpathText>.</con1:xpathText>
+            </con2:location>
+            <con2:expr>
+              <con1:xqueryTransform>
+                <con1:resource ref="OSB_RenatoRibeiro/ServiciosNegocio/Credito/Resources/Transformations/RegrasScoreTransformation"/>
+                <con1:param name="indicaWhiteLilst">
+                  <con1:path>$indicaWhiteList</con1:path>
+                </con1:param>
+                <con1:param name="creditoExterno">
+                  <con1:path>$restricaoCreditoExterno</con1:path>
+                </con1:param>
+                <con1:param name="pessoa">
+                  <con1:path>$pessoa</con1:path>
+                </con1:param>
+                <con1:param name="somaCreditoInterno">
+                  <con1:path>$restricaoCreditoInterno</con1:path>
+                </con1:param>
+                <con1:param name="numRestricoesCreditoInterno">
+                  <con1:path>$numRestricoesCreditoInterno</con1:path>
+                </con1:param>
+              </con1:xqueryTransform>
+            </con2:expr>
+          </con2:replace>
+        </con:actions>
+      </con:stage>
+    </con:pipeline>
+    <con:flow>
+      <con:pipeline-node name="PipelinePairCreditoGeral">
+        <con:request>PipelinePairCreditoGeral_request</con:request>
+        <con:response>PipelinePairCreditoGeral_response</con:response>
+      </con:pipeline-node>
+      <con:route-node name="RouteNode1">
+        <con:context>
+          <con1:userNsDecl namespace="http://pucminas.br/SN/Credito" prefix="cred1"/>
+          <con1:varNsDecl namespace="http://pucminas.br/SN/CreditoGeral" prefix="cred"/>
+          <con1:varNsDecl namespace="http://pucminas.br/MC/SOA/RenatoRibeiro" prefix="ren"/>
+        </con:context>
+        <con:actions>
+          <con3:route>
+            <con1:id>_ActionId-2446167359644606466-5bbf6b4e.158cc0cb18e.-7e48</con1:id>
+            <con3:service ref="OSB_RenatoRibeiro/ServiciosNegocio/Credito/Services/Proxies/Operations/verificaWhiteListService" xsi:type="ref:ProxyRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+            <con3:outboundTransform>
+              <con2:replace varName="body" contents-only="true">
+                <con1:id>_ActionId-9196488998754947785--6fabf8fd.158dbe7e16d.-7ed8</con1:id>
+                <con2:location>
+                  <con1:xpathText>.</con1:xpathText>
+                </con2:location>
+                <con2:expr>
+                  <con1:xqueryText>&lt;cred:parametrosVerificaWhiteList xmlns:cred="http://pucminas.br/SN/Credito">
+	{$pessoa}
+&lt;/cred:parametrosVerificaWhiteList></con1:xqueryText>
+                </con2:expr>
+              </con2:replace>
+            </con3:outboundTransform>
+            <con3:responseTransform>
+              <con2:assign varName="indicaWhiteList">
+                <con1:id>_ActionId-9196488998754947785--6fabf8fd.158dbe7e16d.-7db7</con1:id>
+                <con2:expr>
+                  <con1:xqueryText>$body/cred1:resultadoVerificaWhiteList/cred1:mensagemRetorno/ren:isAtivo/text()</con1:xqueryText>
+                </con2:expr>
+              </con2:assign>
+            </con3:responseTransform>
+          </con3:route>
+        </con:actions>
+      </con:route-node>
+    </con:flow>
+  </ser:router>
+</xml-fragment>

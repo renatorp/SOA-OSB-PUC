@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://whitelist.com.br/SN/WhiteList"
+	xmlns:tns="http://whitelist.com.br/SN/WhiteList" elementFormDefault="qualified">
+	
+	
+	<element name="ParametrosWhiteList" type="tns:ParametrosWhiteList"/>
+	<element name="ResultadoWhiteList" type="tns:ResultadoWhiteList"/>
+	
+	<complexType name="ParametrosWhiteList">
+		<sequence>
+			<element name="num_documento" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="dt_nascimento" type="date" minOccurs="1" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+	
+	<complexType name="ResultadoWhiteList">
+		<sequence>
+			<element name="num_documento" type="string" minOccurs="1" maxOccurs="1"/>
+			<element name="indica_white_list" type="boolean" minOccurs="1" maxOccurs="1"/>
+		</sequence>
+	</complexType>
+	
+</schema>

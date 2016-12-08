@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://pucminas.br/SN/Credito" 
+	xmlns:tns="http://pucminas.br/SN/Credito" 
+	elementFormDefault="qualified"
+	xmlns:cab="http://pucminas.br/MC/SOA/RenatoRibeiro">
+
+	<import namespace="http://pucminas.br/MC/SOA/RenatoRibeiro" schemaLocation="../../../ModeloCanonico/MC/Pessoa.xsd" />
+	<import namespace="http://pucminas.br/MC/SOA/RenatoRibeiro" schemaLocation="../../../ModeloCanonico/MC/Credito.xsd" />
+	<import namespace="http://pucminas.br/MC/SOA/RenatoRibeiro" schemaLocation="../../../ModeloCanonico/MC/MensagemRetorno.xsd" />
+
+
+	<element name="parametrosVerificaCreditoExterno">
+		<complexType>
+			<sequence>
+				<element name="pessoa" type="cab:Pessoa" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="resultadoVerificaCreditoExterno">
+		<complexType>
+			<sequence>
+				<element name="credito" type="cab:Credito" />
+				<element name="valorRestricao" type="integer" />
+			</sequence>
+		</complexType>
+	</element>
+
+
+	<complexType name="parametrosVerificaCreditoInterno">
+		<sequence>
+			<element name="pessoa" type="cab:Pessoa" />
+		</sequence>
+	</complexType>
+
+	<complexType name="resultadoVerificaCreditoInterno">
+		<sequence>
+			<element name="credito" type="cab:Credito" />
+			<element name="somaValorRestricoes" type="integer" />
+			<element name="numRestricoes" type="integer" />
+		</sequence>
+	</complexType>
+
+	<element name="parametrosVerificaCreditoInterno" type="tns:parametrosVerificaCreditoInterno"></element>
+	<element name="resultadoVerificaCreditoInterno" type="tns:resultadoVerificaCreditoInterno"></element>
+
+	<element name="parametrosVerificaWhiteList">
+		<complexType>
+			<sequence>
+				<element name="pessoa" type="cab:Pessoa" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="resultadoVerificaWhiteList">
+		<complexType>
+			<sequence>
+				<element name="mensagemRetorno" type="cab:MensagemRetorno" />
+			</sequence>
+		</complexType>
+	</element>
+
+</schema>

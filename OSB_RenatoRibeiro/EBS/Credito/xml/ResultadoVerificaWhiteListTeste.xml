@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:resultadoVerificaWhiteList xmlns:tns="http://pucminas.br/SN/Credito" xmlns:tns1="http://pucminas.br/MC/SOA/RenatoRibeiro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pucminas.br/SN/Credito ../xsd/ParametrosCredito.xsd ">
+  <tns:mensagemRetorno>
+    <tns1:codigo>3</tns1:codigo>
+    <tns1:descricao>Teste Verificação WhiteList</tns1:descricao>
+    <tns1:isAtivo>true</tns1:isAtivo>
+  </tns:mensagemRetorno>
+</tns:resultadoVerificaWhiteList>

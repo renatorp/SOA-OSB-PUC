@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+		targetNamespace="http://pucminas.br/MC/SOA/RenatoRibeiro" 
+		xmlns:tns="http://pucminas.br/MC/SOA/RenatoRibeiro" elementFormDefault="qualified">
+	
+	<complexType name="PucminasFault">
+		<sequence>
+			<element name="codigo" type="integer"/>
+			<element name="descricao" type="string"/>
+			<element name="detalhe" type="string"/>
+		</sequence>	
+	</complexType>	
+	
+	<element name="pucminasFault" type="tns:PucminasFault" />
+	
+</schema>
