@@ -134,27 +134,23 @@
     </sequence>
   </complexType>
   <element name="pucminasFault" type="tns:PucminasFault"/>
-</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://puc-VirtualBox:8093/Pessoa</con:endpoint><con:endpoint>http://pucminas.br/SOA/Pessoa</con:endpoint></con:endpoints><con:operation id="b8ba7c19-844e-4528-bcb4-3cd7510decd9" isOneWay="false" action="http://pucminas.br/SN/PessoaService/BuscaPessoa" name="buscaPessoa" bindingOperationName="buscaPessoa" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5818ecf4-a087-4356-a410-a0967e5432b7" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8093/Pessoa</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pes="http://pucminas.br/SN/Pessoa" xmlns:ren="http://pucminas.br/MC/SOA/RenatoRibeiro">
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://puc-VirtualBox:8093/Pessoa</con:endpoint><con:endpoint>http://pucminas.br/SOA/Pessoa</con:endpoint></con:endpoints><con:operation id="b8ba7c19-844e-4528-bcb4-3cd7510decd9" isOneWay="false" action="http://pucminas.br/SN/PessoaService/BuscaPessoa" name="buscaPessoa" bindingOperationName="buscaPessoa" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5818ecf4-a087-4356-a410-a0967e5432b7" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:7001/ServiciosNegocio/Pessoa</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pes="http://pucminas.br/SN/Pessoa" xmlns:ren="http://pucminas.br/MC/SOA/RenatoRibeiro">
    <soapenv:Header/>
    <soapenv:Body>
       <pes:parametrosBuscaPessoa>
         <pes:pessoa>
             <ren:id>1</ren:id>
-            <ren:nome>Renato</ren:nome>
-            <ren:dataNascimento>1986-02-11</ren:dataNascimento>
-            <ren:cnpj>000.000.000-00</ren:cnpj>
-            <ren:telefone>1232-2334</ren:telefone>
          </pes:pessoa>
       </pes:parametrosBuscaPessoa>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://pucminas.br/SN/PessoaService/BuscaPessoa"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="a4290f45-293f-4dfa-b88b-ff8c2b16fb84" isOneWay="false" action="http://pucminas.br/SN/PessoaService/CadastraPessoa" name="cadastraPessoa" bindingOperationName="cadastraPessoa" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5b8fa9f4-51e9-43a6-94fa-40416f52ab14" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8093/Pessoa</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pes="http://pucminas.br/SN/Pessoa" xmlns:ren="http://pucminas.br/MC/SOA/RenatoRibeiro">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://pucminas.br/SN/PessoaService/BuscaPessoa"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="a4290f45-293f-4dfa-b88b-ff8c2b16fb84" isOneWay="false" action="http://pucminas.br/SN/PessoaService/CadastraPessoa" name="cadastraPessoa" bindingOperationName="cadastraPessoa" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5b8fa9f4-51e9-43a6-94fa-40416f52ab14" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:7001/ServiciosNegocio/Pessoa</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pes="http://pucminas.br/SN/Pessoa" xmlns:ren="http://pucminas.br/MC/SOA/RenatoRibeiro">
    <soapenv:Header/>
    <soapenv:Body>
       <pes:parametrosCadastraPessoa>
          <pes:pessoa>
-            <ren:id>1</ren:id>
-            <ren:nome>Renato</ren:nome>
-            <ren:dataNascimento>1986-02-11</ren:dataNascimento>
+            <ren:id>2</ren:id>
+		  <ren:nome>Maria Teste 2</ren:nome>
+            <ren:dataNascimento>2005-01-07</ren:dataNascimento>
             <ren:cnpj>000.000.000-00</ren:cnpj>
             <ren:telefone>1232-2334</ren:telefone>
          </pes:pessoa>
@@ -163,15 +159,15 @@
 </soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://pucminas.br/SN/PessoaService/CadastraPessoa"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="1b2c7ea1-5291-48ac-9ece-a92675926a17" isOneWay="false" action="http://pucminas.br/SN/PessoaService/DesastivaPessoa" name="desastivaPessoa" bindingOperationName="desastivaPessoa" type="One-Way" inputName="" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2829656a-1115-4774-8bec-aa892e6fcfc8" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:7001/ServiciosNegocio/Pessoa</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pes="http://pucminas.br/SN/Pessoa" xmlns:ren="http://pucminas.br/MC/SOA/RenatoRibeiro">
    <soapenv:Header/>
    <soapenv:Body>
-      <pes:parametrosDesastivaPessoa>
-         <pes:pessoa>
-            <ren:id>88</ren:id>
-            <ren:nome>Maria</ren:nome>
-            <ren:dataNascimento>1990-01-01</ren:dataNascimento>
-            <ren:cnpj>333.333.333-33</ren:cnpj>
-            <ren:telefone>5555-5555</ren:telefone>
-         </pes:pessoa>
-      </pes:parametrosDesastivaPessoa>
+      <pes:parametrosDesastivaPessoa >
+    <pes:pessoa >
+        <ren:id>8</ren:id>
+        <ren:nome>Ana</ren:nome>
+        <ren:dataNascimento>2008-09-28</ren:dataNascimento>
+        <ren:cnpj>222.222.222-22</ren:cnpj>
+        <ren:telefone>12345464</ren:telefone>
+    </pes:pessoa>
+</pes:parametrosDesastivaPessoa>
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://pucminas.br/SN/PessoaService/DesastivaPessoa"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="fc45f9d3-8206-4ca8-8f8c-d6b7dda920cf" port="8093" path="/Pessoa" host="puc-VirtualBox" name="PessoaServiceSOAP MockService" bindToHostOnly="false" docroot=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="buscaPessoa" id="57b6221b-75d4-4de1-85ec-5313249033b3" interface="PessoaServiceSOAP" operation="buscaPessoa"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="f6f9f6c0-df36-46df-b71f-6ad29a047589" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pes="http://pucminas.br/SN/Pessoa" xmlns:ren="http://pucminas.br/MC/SOA/RenatoRibeiro">
    <soapenv:Header/>
@@ -179,7 +175,7 @@
       <pes:resultadoBuscaPessoa>
         <pes:pessoa>
             <ren:id>1</ren:id>
-            <ren:nome>Renato</ren:nome>
+            <ren:nome>Jose Teste 1</ren:nome>
             <ren:dataNascimento>1986-02-11</ren:dataNascimento>
             <ren:cnpj>000.000.000-00</ren:cnpj>
             <ren:telefone>1232-9999</ren:telefone>
@@ -192,8 +188,8 @@
       <pes:resultadoCadastraPessoa>
          <pes:pessoa>
             <ren:id>2</ren:id>
-            <ren:nome>Renato</ren:nome>
-            <ren:dataNascimento>1986-02-11</ren:dataNascimento>
+            <ren:nome>Maria Teste 2</ren:nome>
+            <ren:dataNascimento>2005-01-07</ren:dataNascimento>
             <ren:cnpj>000.000.000-00</ren:cnpj>
             <ren:telefone>1232-9999</ren:telefone>
          </pes:pessoa>

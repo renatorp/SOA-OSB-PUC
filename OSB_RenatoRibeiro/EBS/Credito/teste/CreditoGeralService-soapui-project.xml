@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="73624b77-a4af-4335-a4d8-f5062f1ad846" activeEnvironment="Default" name="CreditoGeralService" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="639a6adb-727a-46f1-b7ed-ef8089177963" wsaVersion="NONE" name="CreditoGeralServiceSOAP" type="wsdl" bindingName="{http://pucminas.br/SN/CreditoService/RenatoRibeiro}CreditoGeralServiceSOAP" soapVersion="1_1" anonymous="optional" definition="file:/home/puc/workspace/OSB_RenatoRibeiro/EBS/Credito/wsdl/CreditoGeralService.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/home/puc/workspace/OSB_RenatoRibeiro/EBS/Credito/wsdl/CreditoGeralService.wsdl"><con:part><con:url>file:/home/puc/workspace/OSB_RenatoRibeiro/EBS/Credito/wsdl/CreditoGeralService.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="CreditoGeralService" targetNamespace="http://pucminas.br/SN/CreditoService/RenatoRibeiro" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://pucminas.br/SN/CreditoService/RenatoRibeiro" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:cre="http://pucminas.br/SN/CreditoGeral" xmlns:cab="http://pucminas.br/MC/SOA/RenatoRibeiro" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://pucminas.br/SN/CreditoService/RenatoRibeiro">
+      <xsd:import namespace="http://pucminas.br/SN/CreditoGeral" schemaLocation="../xsd/ParametrosCreditoGeral.xsd"/>
+      <xsd:import namespace="http://pucminas.br/MC/SOA/RenatoRibeiro" schemaLocation="../../../ModeloCanonico/MC/PucminasFault.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="pucminasFault">
+    <wsdl:part element="cab:pucminasFault" name="fault"/>
+  </wsdl:message>
+  <wsdl:message name="verificaCreditoGeralRequest">
+    <wsdl:part element="cre:parametrosVerificaCreditoGeral" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="verificaCreditoGeralResponse">
+    <wsdl:part element="cre:resultadoVerificaCreditoGeral" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="CreditoGeralService">
+    <wsdl:operation name="verificaCreditoGeral">
+      <wsdl:input message="tns:verificaCreditoGeralRequest"/>
+      <wsdl:output message="tns:verificaCreditoGeralResponse"/>
+      <wsdl:fault name="pucminasFault" message="tns:pucminasFault"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CreditoGeralServiceSOAP" type="tns:CreditoGeralService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="verificaCreditoGeral">
+      <soap:operation soapAction="http://pucminas.br/SN/CreditoGeral/VerificaCreditoGeral"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="pucminasFault">
+        <soap:fault name="pucminasFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CreditoGeralService">
+    <wsdl:port binding="tns:CreditoGeralServiceSOAP" name="CreditoGeralServiceSOAP">
+      <soap:address location="http://pucminas.br/SOA/Credito"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:/home/puc/workspace/OSB_RenatoRibeiro/EBS/Credito/xsd/ParametrosCreditoGeral.xsd</con:url><con:content><![CDATA[<schema targetNamespace="http://pucminas.br/SN/CreditoGeral" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.example.org/ParametrosCreditoGeral" xmlns:cab="http://pucminas.br/MC/SOA/RenatoRibeiro">
+  <import namespace="http://pucminas.br/MC/SOA/RenatoRibeiro" schemaLocation="../../../ModeloCanonico/MC/Pessoa.xsd"/>
+  <element name="parametrosVerificaCreditoGeral">
+    <complexType>
+      <sequence>
+        <element name="pessoa" type="cab:Pessoa"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="resultadoVerificaCreditoGeral">
+    <complexType>
+      <sequence>
+        <element name="score" type="integer"/>
+        <element name="pessoa" type="cab:Pessoa"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:/home/puc/workspace/OSB_RenatoRibeiro/ModeloCanonico/MC/Pessoa.xsd</con:url><con:content><![CDATA[<schema targetNamespace="http://pucminas.br/MC/SOA/RenatoRibeiro" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://pucminas.br/MC/SOA/RenatoRibeiro">
+  <complexType name="Pessoa">
+    <sequence>
+      <element name="id" type="integer"/>
+      <element name="nome" type="string"/>
+      <element name="dataNascimento" type="date"/>
+      <element name="cnpj" type="string"/>
+      <element name="telefone" type="integer"/>
+    </sequence>
+  </complexType>
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:/home/puc/workspace/OSB_RenatoRibeiro/ModeloCanonico/MC/PucminasFault.xsd</con:url><con:content><![CDATA[<schema targetNamespace="http://pucminas.br/MC/SOA/RenatoRibeiro" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://pucminas.br/MC/SOA/RenatoRibeiro">
+  <complexType name="PucminasFault">
+    <sequence>
+      <element name="codigo" type="integer"/>
+      <element name="descricao" type="string"/>
+      <element name="detalhe" type="string"/>
+    </sequence>
+  </complexType>
+  <element name="pucminasFault" type="tns:PucminasFault"/>
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://pucminas.br/SOA/Credito</con:endpoint></con:endpoints><con:operation id="b8cb7017-fc82-4523-93fd-b0bac0b35c06" isOneWay="false" action="http://pucminas.br/SN/CreditoGeral/VerificaCreditoGeral" name="verificaCreditoGeral" bindingOperationName="verificaCreditoGeral" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2891a68d-0474-47dd-9eeb-807bf1ad5c4f" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:7001/ServiciosNegocio/Credito</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cred="http://pucminas.br/SN/CreditoGeral" xmlns:ren="http://pucminas.br/MC/SOA/RenatoRibeiro">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cred:parametrosVerificaCreditoGeral>
+         <cred:pessoa>
+            <ren:id>1</ren:id>
+            <ren:nome>James Bond</ren:nome>
+            <ren:dataNascimento>01/01/1940</ren:dataNascimento>
+            <ren:cnpj>000.000.000-11</ren:cnpj>
+            <ren:telefone>0070-0700</ren:telefone>
+         </cred:pessoa>
+      </cred:parametrosVerificaCreditoGeral>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://pucminas.br/SN/CreditoGeral/VerificaCreditoGeral"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

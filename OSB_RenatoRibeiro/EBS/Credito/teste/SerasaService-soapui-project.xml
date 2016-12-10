@@ -59,11 +59,19 @@
          <ser:dt_solicitacao>2016-11-21-02:00</ser:dt_solicitacao>
       </ser:ParametrosSerasa>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://cursosoa.org/SerasaService/SerasaService"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="a8febe5f-a271-451a-ad39-e2ef6a86b5c6" port="8092" path="/SerasaService" host="puc-VirtualBox" name="SerasaServiceSOAP MockService"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="ConsultarSerasa" id="798689df-a9a9-4a89-9d74-fddfdd38fb1b" interface="SerasaServiceSOAP" operation="ConsultarSerasa"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="c6ccec83-3c75-4da9-b2cc-18fe4e4e644e" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://serasa.com.br/SN/Serasa">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://cursosoa.org/SerasaService/SerasaService"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="a8febe5f-a271-451a-ad39-e2ef6a86b5c6" port="8092" path="/SerasaService" host="puc-VirtualBox" name="SerasaServiceMock Maior400"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="ConsultarSerasa" id="798689df-a9a9-4a89-9d74-fddfdd38fb1b" interface="SerasaServiceSOAP" operation="ConsultarSerasa"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="c6ccec83-3c75-4da9-b2cc-18fe4e4e644e" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://serasa.com.br/SN/Serasa">
    <soapenv:Header/>
    <soapenv:Body>
       <ser:ResultadoSerasa>
-         <ser:num_documento>112233</ser:num_documento>
+         <ser:num_documento>000.000.000-11</ser:num_documento>
+         <ser:valor_restricao>550</ser:valor_restricao>
+      </ser:ResultadoSerasa>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://cursosoa.org/SerasaService/SerasaService"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:mockService port="8092" path="/SerasaService" host="puc-VirtualBox" name="SerasaServiceMock Menor400" id="765f8867-ca00-42ba-aac3-15962492cdf8"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="ConsultarSerasa" id="87476eff-7deb-40d2-94b7-1d88d54995eb" interface="SerasaServiceSOAP" operation="ConsultarSerasa"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="f1df50ee-608d-4279-93ec-78e17b61d4dc" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://serasa.com.br/SN/Serasa">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ser:ResultadoSerasa>
+         <ser:num_documento>000.000.000-11</ser:num_documento>
          <ser:valor_restricao>250</ser:valor_restricao>
       </ser:ResultadoSerasa>
    </soapenv:Body>

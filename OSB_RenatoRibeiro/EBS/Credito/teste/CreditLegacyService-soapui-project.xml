@@ -78,7 +78,7 @@
          <cred:dt_solicitacao>2016-11-21</cred:dt_solicitacao>
       </cred:ParametrosCreditLegacy>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://cursosoa.org/CreditLegacyService/CreditLegacyService"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="490f6dbe-db4e-4cd6-b973-f248b408cd7a" port="8090" path="/CreditLegacyService" host="puc-VirtualBox" name="CreditLegacyServiceSOAP MockService"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="ConsultarCreditLegacy" id="1d898678-3ee6-4d64-b415-fca32833d06b" interface="CreditLegacyServiceSOAP" operation="ConsultarCreditLegacy"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="d4408c2e-6776-4d1d-b1fd-c4e797124bde" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cred="http://creditlegacy.com.br/SN/CreditLegacy">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://cursosoa.org/CreditLegacyService/CreditLegacyService"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:mockService id="490f6dbe-db4e-4cd6-b973-f248b408cd7a" port="8090" path="/CreditLegacyService" host="puc-VirtualBox" name="CreditLegacyServiceMock 3Restr MenorQ200"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="ConsultarCreditLegacy" id="1d898678-3ee6-4d64-b415-fca32833d06b" interface="CreditLegacyServiceSOAP" operation="ConsultarCreditLegacy"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="d4408c2e-6776-4d1d-b1fd-c4e797124bde" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cred="http://creditlegacy.com.br/SN/CreditLegacy">
    <soapenv:Header/>
    <soapenv:Body>
       <cred:ResultadoCreditLegacy>
@@ -87,23 +87,63 @@
             <!--1 or more repetitions:-->
             <cred:restricao>
                <cred:ds_restricao>restricao_1</cred:ds_restricao>
-               <cred:valor>100</cred:valor>
+               <cred:valor>30</cred:valor>
             </cred:restricao>
-                <cred:restricao>
-               <cred:ds_restricao>restricao_1</cred:ds_restricao>
-               <cred:valor>100</cred:valor>
-            </cred:restricao>
-                <cred:restricao>
-               <cred:ds_restricao>restricao_1</cred:ds_restricao>
-               <cred:valor>100</cred:valor>
+             <cred:restricao>
+               <cred:ds_restricao>restricao_2</cred:ds_restricao>
+               <cred:valor>50</cred:valor>
             </cred:restricao>
             <cred:restricao>
-               <cred:ds_restricao>restricao_1</cred:ds_restricao>
+               <cred:ds_restricao>restricao_3</cred:ds_restricao>
                <cred:valor>100</cred:valor>
             </cred:restricao>
+         </cred:restricoes>
+      </cred:ResultadoCreditLegacy>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://cursosoa.org/CreditLegacyService/CreditLegacyService"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:mockService port="8090" path="/CreditLegacyService" host="puc-VirtualBox" name="CreditLegacyServiceMock 1Restr MaiorQ200" id="05bf17dc-0171-4bed-bac2-dd9c63310333"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="ConsultarCreditLegacy" id="fe1659f9-f83a-4fd4-a633-fa98c5029912" interface="CreditLegacyServiceSOAP" operation="ConsultarCreditLegacy"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="e7d04cc4-1a9c-43d4-9666-28a23a359a5d" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cred="http://creditlegacy.com.br/SN/CreditLegacy">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cred:ResultadoCreditLegacy>
+         <cred:cpf>000.000.000-11</cred:cpf>
+         <cred:restricoes>
+            <!--1 or more repetitions:-->
             <cred:restricao>
                <cred:ds_restricao>restricao_1</cred:ds_restricao>
-               <cred:valor>10</cred:valor>
+               <cred:valor>250</cred:valor>
+            </cred:restricao>
+         </cred:restricoes>
+      </cred:ResultadoCreditLegacy>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://cursosoa.org/CreditLegacyService/CreditLegacyService"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:mockService port="8090" path="/CreditLegacyService" host="puc-VirtualBox" name="CreditLegacyServiceMock 6Restr" id="fe0d340a-0be4-4192-8403-751455155ead"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:mockOperation name="ConsultarCreditLegacy" id="b2b2111d-db69-4345-9daa-53a0362384be" interface="CreditLegacyServiceSOAP" operation="ConsultarCreditLegacy"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:response name="Response 1" id="9e36a23e-eef1-41e2-b080-207f9272b5c9" httpResponseStatus="200" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cred="http://creditlegacy.com.br/SN/CreditLegacy">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cred:ResultadoCreditLegacy>
+         <cred:cpf>000.000.000-11</cred:cpf>
+         <cred:restricoes>
+            <!--1 or more repetitions:-->
+            <cred:restricao>
+               <cred:ds_restricao>restricao_1</cred:ds_restricao>
+               <cred:valor>20</cred:valor>
+            </cred:restricao>
+             <cred:restricao>
+               <cred:ds_restricao>restricao_2</cred:ds_restricao>
+               <cred:valor>250</cred:valor>
+            </cred:restricao>
+             <cred:restricao>
+               <cred:ds_restricao>restricao_3</cred:ds_restricao>
+               <cred:valor>30</cred:valor>
+            </cred:restricao>
+             <cred:restricao>
+               <cred:ds_restricao>restricao_4</cred:ds_restricao>
+               <cred:valor>400</cred:valor>
+            </cred:restricao>
+             <cred:restricao>
+               <cred:ds_restricao>restricao_5</cred:ds_restricao>
+               <cred:valor>25</cred:valor>
+            </cred:restricao>
+             <cred:restricao>
+               <cred:ds_restricao>restricao_6</cred:ds_restricao>
+               <cred:valor>5</cred:valor>
             </cred:restricao>
          </cred:restricoes>
       </cred:ResultadoCreditLegacy>
